@@ -1,0 +1,43 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Israel Time API",
+    "version": "1.0.0",
+    "description": "API שמחזיר שעה, תאריך עברי, פרשה, חג, ראש חודש וספירת העומר"
+  },
+  "servers": [
+    {
+      "url": "https://your-api-url.onrender.com"
+    }
+  ],
+  "paths": {
+    "/israel-time": {
+      "get": {
+        "operationId": "GetIsraelTime",
+        "description": "החזרת המידע העדכני ליום זה לפי אזור זמן ישראל",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "הצלחה",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "datetime": { "type": "string" },
+                    "timezone": { "type": "string" },
+                    "hebrew_date": { "type": "string" },
+                    "parasha": { "type": "string" },
+                    "holiday": { "type": ["string", "null"] },
+                    "rosh_chodesh": { "type": ["string", "null"] },
+                    "omer": { "type": ["string", "null"] }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
